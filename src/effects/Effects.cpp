@@ -136,6 +136,90 @@ EffectFn g_effectList[] = {
     fx_cold_static
 };
 
+// ======================================================
+// EFFECT NAMES (ID ↔ NAME)
+// ======================================================
+
+// ВАЖНО:
+// порядок СТРОГО совпадает с g_effectList[]
+// index = effect_id = UI truth
+
+const char* g_effectNames[] = {
+    "Warm Center",
+    "Ambient Warm",
+    "Warm Static",
+    "Warm Breath",
+
+    "Fire",
+    "Fire Soft",
+    "Fire Slow",
+    "Fire Dense",
+
+    "Matrix",
+    "Rainbow Fade",
+    "Rainbow Loop",
+    "Rainbow Cycle",
+    "Rainbow Soft",
+    "Rainbow Vertical",
+    "Rainbow Center Out",
+
+    "Color Wave",
+    "Color Bounce",
+    "Color Twinkle",
+    "Color Loop VarDelay",
+
+    "Chase",
+    "Chase Flash",
+    "Chase Rainbow",
+    "Cylon Bounce",
+    "KITT",
+    "New KITT",
+
+    "Bouncing Balls",
+    "Bouncing Colored Balls",
+    "RGB Propeller",
+
+    "Plasma Center",
+    "Plasma Soft",
+    "Radiation",
+    "Quad Bright Curve",
+    "Sin Bright Wave",
+
+    "Random Burst",
+    "Random Color Pop",
+    "Random March",
+
+    "Running Dots",
+    "Running Lights",
+    "RWB March",
+    "Strip March CCW",
+    "Strip March CW",
+
+    "Flicker",
+    "Glitter Rainbow",
+    "Sparkle",
+    "Sparkle White",
+    "Twinkle Random",
+    "Snow Sparkle",
+
+    "EMS One",
+    "EMS All",
+    "EMS Strobe",
+
+    "Strobe",
+    "Off Soft",
+
+    "White Glow",
+    "White Temperature",
+    "Cold Static"
+};
+
+static_assert(
+    sizeof(g_effectNames) / sizeof(g_effectNames[0]) ==
+    sizeof(g_effectList) / sizeof(g_effectList[0]),
+    "Effect names count must match effect list"
+);
+
 const uint16_t G_EFFECT_COUNT =
     sizeof(g_effectList) / sizeof(g_effectList[0]);
 

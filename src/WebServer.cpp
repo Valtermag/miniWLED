@@ -96,16 +96,26 @@ void HttpServer::init() {
     // WLED API — /json/effects
     // (ПОКА FX 0..N — ИМЕНА ПОЗЖЕ)
     // ============================
+    // server.on("/json/effects", HTTP_GET, []() {
+    //     String json = "[";
+    //     for (uint16_t i = 0; i < G_EFFECT_COUNT; i++) {
+    //         json += "\"FX " + String(i) + "\"";
+    //         if (i < G_EFFECT_COUNT - 1) json += ",";
+    //     }
+    //     json += "]";
+    //     server.send(200, "application/json", json);
+    // });
     server.on("/json/effects", HTTP_GET, []() {
         String json = "[";
         for (uint16_t i = 0; i < G_EFFECT_COUNT; i++) {
-            json += "\"FX " + String(i) + "\"";
+            json += "\"";
+            json += g_effectNames[i];
+            json += "\"";
             if (i < G_EFFECT_COUNT - 1) json += ",";
         }
         json += "]";
         server.send(200, "application/json", json);
     });
-
     // ============================
     // WLED API — /json/pal
     // ============================

@@ -9,6 +9,7 @@ typedef void (*EffectFn)(uint32_t now, const EffectParams& p);
 // effect list (таблица функций)
 extern EffectFn g_effectList[];
 extern const uint16_t G_EFFECT_COUNT;
+extern const char* g_effectNames[];
 
 // управление
 void setCurrentEffect(uint8_t id);
