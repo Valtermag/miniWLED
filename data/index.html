@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+  <title>miniWLED</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <span class="logo">miniWLED by John Alex</span>
+
+    <div class="top-right">
+      <div class="pc-tabs" role="tablist" aria-label="Screens">
+        <button class="tab-btn active" data-screen="color" role="tab">Color</button>
+        <button class="tab-btn" data-screen="effects" role="tab">FX</button>
+        <button class="tab-btn" data-screen="settings" role="tab">Settings</button>
+      </div>
+
+      <label class="switch">
+        <input id="powerToggle" type="checkbox">
+        <span class="switch-track"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="screens">
+
+    <!-- ================= COLOR ================= -->
+    <section id="screen-color" class="screen active">
+      <div class="color-panel">
+        <div id="colorWheel"></div>
+
+        <div class="controls">
+          <div class="ctrl">
+            <div class="ctrl-left">
+              <span class="ctrl-ico">☀️</span>
+              <span class="ctrl-name">Brightness</span>
+            </div>
+            <div class="ctrl-right">
+              <span id="briVal" class="ctrl-val">128</span>
+            </div>
+            <input id="briSlider" class="range" type="range" min="1" max="255" value="128">
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-left">
+              <span class="ctrl-ico">⏩</span>
+              <span class="ctrl-name">Speed</span>
+            </div>
+            <div class="ctrl-right">
+              <span id="sxVal" class="ctrl-val">128</span>
+            </div>
+            <input id="speedSlider" class="range" type="range" min="0" max="255" value="128">
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-left">
+              <span class="ctrl-ico">🔥</span>
+              <span class="ctrl-name">Intensity</span>
+            </div>
+            <div class="ctrl-right">
+              <span id="ixVal" class="ctrl-val">128</span>
+            </div>
+            <input id="intensitySlider" class="range" type="range" min="0" max="255" value="128">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FX ================= -->
+    <section id="screen-effects" class="screen">
+      <div class="fx-panel">
+
+        <div class="fx-wheel-wrap" aria-label="Effects list">
+          <div class="fx-centerHighlight"></div>
+          <div class="fx-wheel" id="fxWheel" tabindex="0"></div>
+        </div>
+
+        <div class="controls fx-controls">
+
+          <div class="ctrl">
+            <div class="ctrl-left">
+              <span class="ctrl-ico">☀️</span>
+              <span class="ctrl-name">Brightness</span>
+            </div>
+            <div class="ctrl-right">
+              <span id="briValFx" class="ctrl-val">128</span>
+            </div>
+            <input id="briSliderFx" class="range" type="range" min="1" max="255" value="128">
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-left">
+              <span class="ctrl-ico">⏩</span>
+              <span class="ctrl-name">Speed</span>
+            </div>
+            <div class="ctrl-right">
+              <span id="sxValFx" class="ctrl-val">128</span>
+            </div>
+            <input id="speedSliderFx" class="range" type="range" min="0" max="255" value="128">
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-left">
+              <span class="ctrl-ico">🔥</span>
+              <span class="ctrl-name">Intensity</span>
+            </div>
+            <div class="ctrl-right">
+              <span id="ixValFx" class="ctrl-val">128</span>
+            </div>
+            <input id="intensitySliderFx" class="range" type="range" min="0" max="255" value="128">
+          </div>
+
+        </div>
+
+        <div class="fx-name" id="fxName">—</div>
+      </div>
+    </section>
+
+    <!-- ================= SETTINGS ================= -->
+    <section id="screen-settings" class="screen">
+      <div class="placeholder">
+        <div class="ph-title">⚙ Settings</div>
+        <div class="ph-sub">Info / config</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM BAR -->
+  <nav class="bottom-bar" aria-label="Bottom navigation">
+    <button class="nav-btn active" data-screen="color">Color</button>
+    <button class="nav-btn" data-screen="effects">FX</button>
+    <button class="nav-btn" data-screen="settings">Config</button>
+  </nav>
+
+</div>
+
+<script src="/iro.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

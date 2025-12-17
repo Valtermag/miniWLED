@@ -1,0 +1,9 @@
+#include <FastLED.h>
+#include "Effects.h"
+
+extern CRGB leds[];
+extern const uint16_t NUM_LEDS;
+
+void fx_warm_static(uint32_t now, const EffectParams& p) {
+    fill_solid(leds, NUM_LEDS, CRGB(255, 147, 41));
+}

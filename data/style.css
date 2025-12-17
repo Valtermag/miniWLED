@@ -1,0 +1,220 @@
+/* BASE */
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont}
+html,body{height:100%;background:#0f1115;color:#fff;overflow:hidden}
+#app{height:100%;display:flex;flex-direction:column}
+
+/* TOP BAR */
+.top-bar{height:56px;padding:0 16px;background:#151820;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:600;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:68vw}
+.top-right{display:flex;align-items:center;gap:14px}
+
+/* PC TABS */
+.pc-tabs{display:none;gap:10px}
+.tab-btn{background:none;border:none;color:#888;font-size:14px;padding:8px 10px;border-radius:10px}
+.tab-btn.active{color:#00e0ff;background:rgba(0,224,255,.08)}
+
+/* SWITCH */
+.switch{position:relative;width:46px;height:26px;flex:0 0 auto}
+.switch input{opacity:0;width:0;height:0}
+.switch-track{position:absolute;inset:0;background:#333;border-radius:13px;transition:.2s}
+.switch-track::before{content:"";position:absolute;width:22px;height:22px;left:2px;top:2px;background:#fff;border-radius:50%;transition:.2s}
+.switch input:checked + .switch-track{background:#00e0ff}
+.switch input:checked + .switch-track::before{transform:translateX(20px)}
+
+/* SCREENS */
+.screens{flex:1;position:relative}
+.screen{
+  position:absolute; inset:0;
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  padding:18px;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.screen.active{display:flex}
+
+/* BOTTOM BAR */
+.bottom-bar{height:60px;background:#151820;display:flex;border-top:1px solid rgba(255,255,255,.06)}
+.nav-btn{flex:1;background:none;border:none;color:#888;font-size:14px}
+.nav-btn.active{color:#00e0ff}
+
+/* PLACEHOLDER */
+.placeholder{
+  width:min(520px,94vw);
+  padding:18px;
+  border-radius:16px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  text-align:center;
+}
+.ph-title{font-size:18px;opacity:.85}
+.ph-sub{margin-top:8px;font-size:14px;opacity:.45}
+
+/* COLOR PANEL */
+.color-panel{
+  width:min(420px,94vw);
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+#colorWheel{
+  width:min(300px,78vw);
+  height:min(300px,78vw);
+  max-width:360px;
+  max-height:360px;
+}
+
+/* CONTROLS */
+.controls{
+  width:min(520px,92vw);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.ctrl{
+  width:100%;
+  padding:10px 12px 8px;
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  display:grid;
+  grid-template-columns:1fr auto;
+  grid-template-rows:auto auto;
+  row-gap:8px;
+}
+.ctrl-left,.ctrl-right{display:flex;align-items:center;gap:10px}
+.ctrl-name{font-size:13px;color:#cfd6e4;opacity:.95}
+.ctrl-val{
+  font-size:11px;
+  color:#9aa7bd;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  padding:3px 7px;
+  border-radius:999px;
+}
+
+/* RANGE */
+.range{
+  grid-column:1 / -1;
+  grid-row:2;
+  width:100%;
+  -webkit-appearance:none;
+  appearance:none;
+  height:6px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(0,224,255,.85), rgba(255,255,255,.12));
+  outline:none;
+}
+.range::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#e9f7ff;
+  border:1.5px solid rgba(0,224,255,.75);
+  box-shadow:0 6px 18px rgba(0,0,0,.45);
+}
+.range::-moz-range-thumb{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#e9f7ff;
+  border:1.5px solid rgba(0,224,255,.75);
+}
+
+/* FX PANEL */
+.fx-panel{
+  width:min(520px,94vw);
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+
+/* FX WHEEL — чистый текст, черный фон */
+.fx-wheel-wrap{
+  width:100%;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:transparent;   /* важно: без карточки */
+  border:none;              /* важно */
+}
+
+/* окно списка */
+.fx-wheel{
+  height:300px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-snap-type:y mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:120px 0; /* чтобы центр был реально центром */
+}
+.fx-wheel::-webkit-scrollbar{display:none}
+
+/* элементы */
+.fx-item{
+  scroll-snap-align:center;
+  text-align:center;
+  padding:10px 14px;
+  font-size:22px;
+  letter-spacing:.2px;
+  color:rgba(200,210,225,.45);
+  opacity:.35;
+  transform:scale(.94);
+  transition:opacity .18s, transform .18s, color .18s, filter .18s;
+  user-select:none;
+  cursor:pointer;
+}
+.fx-item.active{
+  opacity:1;
+  color:rgba(0,224,255,.95);
+  transform:scale(1.02);
+  filter:drop-shadow(0 6px 16px rgba(0,224,255,.10));
+}
+
+/* центральная полоса */
+.fx-centerHighlight{
+  position:absolute;
+  left:10px;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  height:56px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  pointer-events:none;
+}
+
+/* название выбранного */
+.fx-name{
+  font-size:13px;
+  opacity:.65;
+  letter-spacing:.2px;
+  margin-top:2px;
+}
+
+/* FX controls чуть плотнее */
+.fx-controls .ctrl{background:rgba(255,255,255,.03)}
+
+/* RESPONSIVE */
+@media (min-width:768px){
+  .bottom-bar{display:none}
+  .pc-tabs{display:flex}
+  .logo{max-width:40vw}
+}
+@media (max-width:768px){
+  .screen{padding-bottom:80px}
+}
+@media (max-width:480px){
+  #colorWheel{width:min(280px,82vw);height:min(280px,82vw);margin-top:4px}
+  .fx-wheel{height:260px;padding:100px 0}
+  .fx-item{font-size:20px}
+}
